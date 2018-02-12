@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WC8-PA-yOh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doge.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="DUF-HS-PmR" userLabel="image view">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rc-gn-l5A">
+                                <rect key="frame" x="142" y="625" width="90" height="30"/>
+                                <state key="normal" title="Take A Photo"/>
+                                <connections>
+                                    <segue destination="E5O-ra-Kpa" kind="show" id="Mm4-Ir-nOb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7rc-gn-l5A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A1k-lF-8Rb"/>
+                            <constraint firstItem="DUF-HS-PmR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EfB-vf-fLw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7rc-gn-l5A" secondAttribute="bottom" constant="12" id="Uhb-bJ-Tax"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DUF-HS-PmR" secondAttribute="trailing" id="dnN-op-3GN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DUF-HS-PmR" secondAttribute="bottom" constant="50" id="ghc-Yl-Yco"/>
+                            <constraint firstItem="DUF-HS-PmR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="umQ-3Y-g4g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kif-75-Czs"/>
+                    <connections>
+                        <outlet property="mainImageView" destination="DUF-HS-PmR" id="RyV-qf-nsY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455.19999999999999" y="117.39130434782609"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="av7-dA-2p7">
+            <objects>
+                <viewController id="E5O-ra-Kpa" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Lf-RY-m94">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8R6-Hu-0hW">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="BpX-GX-QTt"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" id="DdN-Fn-Lmr">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="uJA-to-YuM">
+                                            <rect key="frame" x="16" y="7" width="121" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Color"/>
+                                                <segment title="Gray" width="60"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="onColorModeSelected:" destination="E5O-ra-Kpa" eventType="valueChanged" id="t8V-kW-7u8"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="5Bg-25-avZ">
+                                        <connections>
+                                            <action selector="onSwitchCameraButtonPressed:" destination="E5O-ra-Kpa" id="u3P-va-pce"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="40" style="plain" systemItem="fixedSpace" id="Cul-wT-BVV"/>
+                                    <barButtonItem title="Save" id="WlZ-xp-mj7">
+                                        <connections>
+                                            <action selector="onSaveButtonPressed:" destination="E5O-ra-Kpa" id="sxL-zB-FuR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="F91-pf-0y9"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fleur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-lQ-084">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b5u-9c-lkN">
+                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8R6-Hu-0hW" firstAttribute="leading" secondItem="djb-lN-mab" secondAttribute="leading" id="44J-8n-8Pe"/>
+                            <constraint firstItem="Imh-lQ-084" firstAttribute="leading" secondItem="djb-lN-mab" secondAttribute="leading" id="DdK-QF-Nht"/>
+                            <constraint firstItem="b5u-9c-lkN" firstAttribute="centerY" secondItem="6Lf-RY-m94" secondAttribute="centerY" id="MZk-OZ-NN2"/>
+                            <constraint firstItem="8R6-Hu-0hW" firstAttribute="trailing" secondItem="djb-lN-mab" secondAttribute="trailing" id="NLH-yp-gHG"/>
+                            <constraint firstItem="djb-lN-mab" firstAttribute="trailing" secondItem="Imh-lQ-084" secondAttribute="trailing" id="T8R-B0-5D7"/>
+                            <constraint firstItem="8R6-Hu-0hW" firstAttribute="top" secondItem="Imh-lQ-084" secondAttribute="bottom" id="XQ7-3F-L7s"/>
+                            <constraint firstItem="b5u-9c-lkN" firstAttribute="centerX" secondItem="6Lf-RY-m94" secondAttribute="centerX" id="mp4-l0-y0v"/>
+                            <constraint firstItem="8R6-Hu-0hW" firstAttribute="bottom" secondItem="djb-lN-mab" secondAttribute="bottom" id="yYL-U2-hKY"/>
+                            <constraint firstItem="Imh-lQ-084" firstAttribute="top" secondItem="djb-lN-mab" secondAttribute="top" id="z14-ic-6rk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="djb-lN-mab"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="b5u-9c-lkN" id="PNU-dT-CV1"/>
+                        <outlet property="imageView" destination="Imh-lQ-084" id="bSw-c5-jpQ"/>
+                        <outlet property="toolbar" destination="8R6-Hu-0hW" id="Uce-jW-Uza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z1P-oV-DAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LxJ-f0-N65">
+                    <connections>
+                        <action selector="onTapToSetPointOfInterest:" destination="E5O-ra-Kpa" id="Xqn-Rn-lDX"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1244" y="115.59220389805098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jnb-t2-IEL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="WC8-PA-yOh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TkO-V9-cYY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kIr-Bf-zJA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Hx-Cm-LY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-402" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Fleur.jpg" width="1300" height="1187"/>
+        <image name="doge.jpeg" width="1200" height="1292"/>
+    </resources>
+</document>
